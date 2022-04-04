@@ -5,7 +5,7 @@ import closeIcon from '../../Icon/closeIcon.png'
 import io from 'socket.io-client';
 import { useNavigate } from 'react-router-dom'
 let socket;
-function InfoBar({room,setUsers}) {
+function InfoBar({room,setUsers,clicked}) {
   const ENDPOINT="http://localhost:5000";
   let navigate=useNavigate()
   const handledisconnect=()=>{
@@ -21,7 +21,7 @@ function InfoBar({room,setUsers}) {
  
   return (
     <div className='infoBar'>
-        <div className='leftInnerContainer'>
+        <div onClick={()=>{clicked(true);}} className='leftInnerContainer'>
             <img className="onlineIcon" src={onlineIcon} alt=""/>
             <h3>{room}</h3>
         </div>

@@ -5,7 +5,9 @@
     height: 100vh;
     background-color: #ecebfd;
   }
-  
+  ::-webkit-scrollbar{
+    width:0.01px;
+  }
   .contain {
     display: flex;
     flex-direction: column;
@@ -33,8 +35,15 @@
       width: 60%;
     }
   }
+  .dnone2{
+display: none;
+  }
   @media screen and (max-width:771px) {
     .dnone{
       display: none;
+    }
+    .dnone2{
+      display:block;
+      padding:0;
     }
   }

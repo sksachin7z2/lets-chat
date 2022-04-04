@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useRef} from 'react';
 import queryString from 'query-string'
 import { useLocation,useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
@@ -46,6 +46,8 @@ const ENDPOINT="http://localhost:5000";
 
   },[messages]);
 
+
+  let ref=useRef(null);
   //function for sending message
   const sendMessage=(event)=>{
    event.preventDefault();
@@ -55,20 +57,34 @@ const ENDPOINT="http://localhost:5000";
     
   }
   
-
+const [clicked, setClicked] = useState(false);
+if(clicked){
+ref.current.click();
+setClicked(false);
+}
   return (
   <>
-  
+   <button ref={ref} className="btn btn-primary d-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Button with data-bs-target
+  </button>
+
+<div className="collapse" id="collapseExample">
+  <div className="card card-body dnone2">
+  <TextContainer users={users} />
+  </div>
+</div>
   <div className='card'>
 
   <div className="row g-0">
     <div className="col-md-4 dnone" style={{borderRight:"2px solid black",overflow:"hidden scroll"}}>
+
+ 
     <TextContainer users={users} />
     </div>
   
    <div className='col-md-8' style={{height:"100vh"}}>
-     
-     <InfoBar room={room} setUsers={setUsers}/>
+  
+     <InfoBar room={room} setUsers={setUsers} clicked={setClicked}/>
      <Message messages={messages} name={name}/>
       <Input message={message} setMessage={setMessage} sendMessage={sendMessage}  />
       
