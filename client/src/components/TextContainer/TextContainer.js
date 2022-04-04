@@ -5,20 +5,29 @@ import onlineIcon from '../../Icon/onlineIcon.png';
 import './TextContainer.css';
 
 const TextContainer = ({ users }) => (
-  <div className="textContainer">
+  <div >
    
     {
       users
         ? (
           <div>
-            <h1>People currently chatting:</h1>
+            <div className='navi'>
+            <h3 style={{color:"white",padding:"0.5rem"}}>LET'S CHAT</h3>
+
+            </div>
             <div className="activeContainer">
               <h2>
                 {users.map(({name}) => (
-                  <div key={name} className="activeItem">
+                  <div style={{width:"20rem"}} key={name}>
+
+                  <div  className="activeItem">
                     {name}
                     <img alt="Online Icon" src={onlineIcon}/>
+                    
                   </div>
+                  <hr />
+                  </div>
+                  
                 ))}
               </h2>
             </div>

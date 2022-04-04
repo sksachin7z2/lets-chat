@@ -1,7 +1,7 @@
-const express=require("express");
-const router=express.Router();
+// const express=require("express");
+// const router=express.Router();
 
-router.get('/',async(req,res)=>{
-    res.send("server is up and running");
-});
-module.exports=router;
+// router.get('/',async(req,res)=>{
+//     res.send("server is up and running");
+// });
+// module.exports=router;

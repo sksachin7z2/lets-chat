@@ -56,14 +56,29 @@ const ENDPOINT="http://localhost:5000";
   }
   
 
-  return <div className='outerContainer'>
-   <div className='container'>
+  return (
+  <>
+  
+  <div className='card'>
+
+  <div className="row g-0">
+    <div className="col-md-4 dnone" style={{borderRight:"2px solid black",overflow:"hidden scroll"}}>
+    <TextContainer users={users} />
+    </div>
+  
+   <div className='col-md-8' style={{height:"100vh"}}>
+     
      <InfoBar room={room} setUsers={setUsers}/>
      <Message messages={messages} name={name}/>
       <Input message={message} setMessage={setMessage} sendMessage={sendMessage}  />
+      
    </div>
-   <TextContainer users={users} />
-    </div>;
+   </div>
+  </div>
+   
+   
+    </>
+  );
 }
 
 export default Chat;

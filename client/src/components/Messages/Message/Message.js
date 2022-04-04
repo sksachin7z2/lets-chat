@@ -23,7 +23,7 @@ function Message({message:{user,text,date},name}) {
         </div>
     </div>:
   admin?<div className={`messageContainer justifyCenter`}>
-  <div className="messageBox backgroundLight">
+  <div className="messageBox backgroundLightad">
       <p className="messageText colorDark">{ReactEmoji.emojify(text)}</p>
       
   </div>
