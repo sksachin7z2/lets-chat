@@ -7,6 +7,11 @@ const {Server}=require('socket.io');
 const router=require('./router');
 app.use(cors());
 // app.use(router);
+const port =process.env.PORT|| 5000
+//heroku
+if(process.env.NODE_ENV==='production'){
+  app.use(express.static('client/build'))
+}
 const server=http.createServer(app);
 
 const io=new Server(server,{
@@ -53,6 +58,6 @@ socket.broadcast.to(user.room).emit('message',{user:"admin",text:`${user.name} h
 
 
 
-server.listen(5000,()=>{
+server.listen(port,()=>{
   console.log("server running");
 })
