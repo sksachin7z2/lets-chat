@@ -6,7 +6,7 @@ import io from 'socket.io-client';
 import { useNavigate } from 'react-router-dom'
 let socket;
 function InfoBar({room,setUsers,clicked}) {
-  const ENDPOINT="http://localhost:5000";
+  const ENDPOINT="https://let-chat-prac.herokuapp.com/";
   let navigate=useNavigate()
   const handledisconnect=()=>{
     socket=io(ENDPOINT);
